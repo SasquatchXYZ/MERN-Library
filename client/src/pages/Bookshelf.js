@@ -1,9 +1,16 @@
 import React, { Component } from 'react';
+import Jumbotron from '../components/Jumbotron';
 
 class Bookshelf extends Component {
   render() {
     return (
-      <h1>This is your Bookshelf where you save your books.... eventually....</h1>
+      <div className="container">
+        <Jumbotron
+          title="My Bookshelf"
+          lead="All of You're Saved Books in One Convenient Location."
+          instructions="View your book at Google, or Remove it from your Shelf."
+        />
+      </div>
     )
   }
 }
