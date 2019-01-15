@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Jumbotron from '../components/Jumbotron';
-//import SearchForm from '../components/SearchForm';
+import SearchForm from '../components/SearchForm';
 
 class Search extends Component {
   state = {
@@ -31,6 +31,7 @@ class Search extends Component {
           lead="Using Google Books API"
           instructions="Search for a book, then view it, or add it to your library..."
         />
+        <SearchForm/>
       </div>
     )
   }
