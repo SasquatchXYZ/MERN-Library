@@ -8,7 +8,19 @@ class Search extends Component {
   state = {
     search: '',
     results: [],
-    error: ''
+    error: '',
+    saveId: ''
+  };
+
+  saveBook = event => {
+    this.setState({saveId: event.target.id});
+    console.log(this.state.results);
+    console.log(event.target.id);
+
+    const chosenBook = this.state.results.find(book => book.id === event.target.id);
+    console.log(chosenBook);
+
+
   };
 
   handleInputChange = event => {
@@ -38,9 +50,10 @@ class Search extends Component {
         />
         <BookCard
           results={this.state.results}
+          saveBook={this.saveBook}
         />
       </div>
-    )
+    );
   }
 }
 
