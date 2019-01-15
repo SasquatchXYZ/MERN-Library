@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-function Nav() {
+function Index() {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <Link className="navbar-brand" to="/">
@@ -33,4 +33,4 @@ function Nav() {
   )
 }
 
-export default Nav;
+export default Index;

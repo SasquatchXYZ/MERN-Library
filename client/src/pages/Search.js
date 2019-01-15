@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import API from '../utils/API';
 import Jumbotron from '../components/Jumbotron';
 import SearchForm from '../components/SearchForm';
+import BookCard from '../components/BookCard';
 
 class Search extends Component {
   state = {
@@ -18,7 +19,7 @@ class Search extends Component {
     event.preventDefault();
     console.log(`Search for: ${this.state.search}`);
     API.getGoogleBooks(this.state.search)
-      .then(res => console.log(res.data.items))
+      .then(res => this.setState({results: res.data.items}))
       .catch(err => console.log(err))
   };
 
@@ -34,6 +35,9 @@ class Search extends Component {
         <SearchForm
           handleInputChange={this.handleInputChange}
           handleFormSubmit={this.handleFormSubmit}
+        />
+        <BookCard
+          results={this.state.results}
         />
       </div>
     )
