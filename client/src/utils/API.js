@@ -16,7 +16,8 @@ export default {
   },
 
   saveBook: function (bookData) {
-    console.log(bookData)
+    console.log(bookData);
+    return axios.post('/api/bookshelf', bookData);
   },
 
   deleteBook: function (book) {

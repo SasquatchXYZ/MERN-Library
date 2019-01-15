@@ -14,13 +14,30 @@ class Search extends Component {
 
   saveBook = event => {
     this.setState({saveId: event.target.id});
-    console.log(this.state.results);
-    console.log(event.target.id);
+    // console.log(this.state.results);
+    // console.log(event.target.id);
 
     const chosenBook = this.state.results.find(book => book.id === event.target.id);
-    console.log(chosenBook);
+    // console.log(chosenBook);
 
+    const newSave = {
+      title: chosenBook.volumeInfo.title,
+      author: chosenBook.volumeInfo.authors
+        ? chosenBook.volumeInfo.authors[0]
+        : 'No Author Listed',
+      description: chosenBook.volumeInfo.description,
+      bookID: chosenBook.id,
+      thumbnail: chosenBook.volumeInfo.imageLinks.thumbnail,
+      link: chosenBook.volumeInfo.canonicalVolumeLink,
+      pageCount: chosenBook.volumeInfo.pageCount,
+      subtitle: chosenBook.volumeInfo.subtitle,
+      publishedDate: chosenBook.volumeInfo.publishedDate,
+    };
 
+    // console.log(newSave);
+    API.saveBook(newSave)
+      .then(res => console.log(res.status, res.statusText))
+      .catch(err => console.log(err))
   };
 
   handleInputChange = event => {
