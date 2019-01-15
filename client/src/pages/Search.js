@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
+import API from '../utils/API';
 import Jumbotron from '../components/Jumbotron';
 import SearchForm from '../components/SearchForm';
 
@@ -15,8 +16,10 @@ class Search extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-
-    console.log(`Search for: ${this.state.search}`)
+    console.log(`Search for: ${this.state.search}`);
+    API.getGoogleBooks(this.state.search)
+      .then(res => console.log(res.data.items))
+      .catch(err => console.log(err))
   };
 
   render() {
