@@ -13,12 +13,18 @@ function BookResults(props) {
               <h6 className="card-subtitle mb-2 text-muted">{book.volumeInfo.subtitle}</h6>
               <div className="media">
                 <img
-                  src={book.volumeInfo.imageLinks.thumbnail}
+                  src={
+                    book.volumeInfo.imageLinks
+                      ? book.volumeInfo.imageLinks.thumbnail
+                      : 'https://www.mcbaincamera.com/_toolbox/noImageAvailable.jpg'
+                  }
                   className="align-self-center mr-3" alt="testing"/>
                 <div className="media-body">
-                  <h6 className="mt-0">{book.volumeInfo.authors
-                    ? book.volumeInfo.authors[0]
-                    : 'No Listed Author'}</h6>
+                  <h6 className="mt-0">{
+                    book.volumeInfo.authors
+                      ? book.volumeInfo.authors[0]
+                      : 'No Listed Author'
+                  }</h6>
                   <p className="mb-0">{book.volumeInfo.description}</p>
                   <p className="mb-0">
                     <small className="text-muted">{book.volumeInfo.pageCount} pages.</small>
