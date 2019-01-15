@@ -1,6 +1,11 @@
+const path = require('path');
 const router = require('express').Router();
-const bookshelfRoutes = require('./bookshelf');
+const apiRoutes = require('./api');
 
-router.use('/bookshelf', bookshelfRoutes);
+router.use('/api', apiRoutes);
+
+router.use((req, res) => {
+  res.sendFile(path.join(__dirname, '../client/build/index.html'))
+});
 
 module.exports = router;
