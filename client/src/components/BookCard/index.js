@@ -3,7 +3,7 @@ import './style.css';
 
 function BookResults(props) {
 
-  // console.log(props);
+  console.log(props);
   return (
     <div className="row mb-5">
       <div className="col-lg-12">
@@ -20,10 +20,9 @@ function BookResults(props) {
                   <h6 className="mt-0">{book.volumeInfo.authors
                     ? book.volumeInfo.authors[0]
                     : 'No Listed Author'}</h6>
-                  <p>{book.volumeInfo.description}</p>
-                  <p className="mb-0">{book.volumeInfo.authors
-                    ? book.volumeInfo.authors[0]
-                    : 'No Listed Author'}</p>
+                  <p className="mb-0">{book.volumeInfo.description}</p>
+                  <p className="mb-0"><small className="text-muted">{book.volumeInfo.pageCount} pages.</small></p>
+                  <p className="mb-2"><small className="text-muted">Published: {book.volumeInfo.publishedDate}</small></p>
                 </div>
               </div>
               <a className="btn btn-primary mr-1" href={book.volumeInfo.canonicalVolumeLink} target="_blank" rel="noopener noreferrer">View Book</a>
