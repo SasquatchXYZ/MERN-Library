@@ -1,8 +1,9 @@
 import React from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import Nav from './components/Nav';
+import Nav from './components/Nav/Nav';
 import Search from './pages/Search';
 import Bookshelf from './pages/Bookshelf';
+import NoMatch from './pages/NoMatch'
 
 
 const App = () => (
