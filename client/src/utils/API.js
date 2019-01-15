@@ -19,7 +19,7 @@ export default {
     console.log(bookData)
   },
 
-  deleteBook: function(book) {
+  deleteBook: function (book) {
     console.log(book)
   }
 };

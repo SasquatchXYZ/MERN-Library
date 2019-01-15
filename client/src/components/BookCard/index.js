@@ -21,11 +21,16 @@ function BookResults(props) {
                     ? book.volumeInfo.authors[0]
                     : 'No Listed Author'}</h6>
                   <p className="mb-0">{book.volumeInfo.description}</p>
-                  <p className="mb-0"><small className="text-muted">{book.volumeInfo.pageCount} pages.</small></p>
-                  <p className="mb-2"><small className="text-muted">Published: {book.volumeInfo.publishedDate}</small></p>
+                  <p className="mb-0">
+                    <small className="text-muted">{book.volumeInfo.pageCount} pages.</small>
+                  </p>
+                  <p className="mb-2">
+                    <small className="text-muted">Published: {book.volumeInfo.publishedDate}</small>
+                  </p>
                 </div>
               </div>
-              <a className="btn btn-primary mr-1" href={book.volumeInfo.canonicalVolumeLink} target="_blank" rel="noopener noreferrer">View Book</a>
+              <a className="btn btn-primary mr-1" href={book.volumeInfo.canonicalVolumeLink} target="_blank"
+                 rel="noopener noreferrer">View Book</a>
               <button className="btn btn-success" onClick={props.saveBook} id={book.id}>Save Book</button>
             </div>
           </div>
