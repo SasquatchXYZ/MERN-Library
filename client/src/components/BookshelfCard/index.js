@@ -2,12 +2,12 @@ import React from 'react';
 import './style.css';
 
 function Bookshelf(props) {
-  // console.log(props);
+  console.log(props.books);
   return (
     <div className="row mb-5">
       <div className="col-lg-12">
         {props.books.map(book => (
-          <div className="card mt-4" key={book._id}>
+          <div className="card mt-4" key={book._id} id={book.googleBookId}>
             <div className="card-body">
               <h5 className="card-title">{book.title}</h5>
               <h6 className="card-subtitle mb-2 text-muted">{book.subtitle}</h6>
@@ -15,7 +15,7 @@ function Bookshelf(props) {
                 <img src={book.thumbnail}
                      className="align-self-center mr-3" alt="testing"/>
                 <div className="media-body">
-                  <h6 className="mt-0">{book.author}</h6>
+                  <h6 className="mt-0">{book.authors.join(', ')}</h6>
                   <p className="mb-0">{book.description}</p>
                   <p className="mb-0">
                     <small className="text-muted">{book.pageCount} pages.</small>

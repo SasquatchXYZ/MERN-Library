@@ -6,15 +6,14 @@ const BookSchema = new Schema({
     type: String,
     required: true
   },
-  author: {
-    type: String,
+  authors: {
+    type: [String],
     required: true
   },
   description: {
     type: String,
-    required: true
   },
-  bookID: {
+  googleBookId: {
     type: String,
     required: true
   },

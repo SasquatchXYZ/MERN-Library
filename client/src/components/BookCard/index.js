@@ -6,7 +6,7 @@ function BookResults(props) {
   return (
     <div className="row mb-5">
       <div className="col-lg-12">
-        {props.results.map(book => (
+        {props.books.map(book => (
           <div className="card mt-4" id={book.id} key={book.id}>
             <div className="card-body">
               <h5 className="card-title">{book.volumeInfo.title}</h5>
@@ -22,7 +22,7 @@ function BookResults(props) {
                 <div className="media-body">
                   <h6 className="mt-0">{
                     book.volumeInfo.authors
-                      ? book.volumeInfo.authors.join(', ')
+                      ? book.volumeInfo.authors.join(' ')
                       : 'No Listed Author'
                   }</h6>
                   <p className="mb-0">{book.volumeInfo.description}</p>
