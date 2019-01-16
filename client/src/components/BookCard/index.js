@@ -16,13 +16,13 @@ function BookResults(props) {
                   src={
                     book.volumeInfo.imageLinks
                       ? book.volumeInfo.imageLinks.thumbnail
-                      : 'https://www.mcbaincamera.com/_toolbox/noImageAvailable.jpg'
+                      : 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/170px-No_image_available.svg.png'
                   }
                   className="align-self-center mr-3" alt="testing"/>
                 <div className="media-body">
                   <h6 className="mt-0">{
                     book.volumeInfo.authors
-                      ? book.volumeInfo.authors[0]
+                      ? book.volumeInfo.authors.join(', ')
                       : 'No Listed Author'
                   }</h6>
                   <p className="mb-0">{book.volumeInfo.description}</p>
