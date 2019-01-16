@@ -24,7 +24,8 @@ export default {
     return axios.get('/api/bookshelf')
   },
 
-  deleteBook: function (book) {
-    console.log(book)
+  deleteBook: function (id) {
+    console.log(id);
+    return axios.delete(`/api/bookshelf/${id}`)
   }
 };
