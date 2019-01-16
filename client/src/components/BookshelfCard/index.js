@@ -7,7 +7,7 @@ function Bookshelf(props) {
     <div className="row mb-5">
       <div className="col-lg-12">
         {props.books.map(book => (
-          <div className="card mt-4" key={book._id} id={book.googleBookId}>
+          <div className="card mt-4" id={book._id} key={book.googleBookId}>
             <div className="card-body">
               <h5 className="card-title">{book.title}</h5>
               <h6 className="card-subtitle mb-2 text-muted">{book.subtitle}</h6>

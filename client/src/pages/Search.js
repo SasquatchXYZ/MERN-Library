@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import API from '../utils/API';
 import Jumbotron from '../components/Jumbotron';
 import SearchForm from '../components/SearchForm';
-import BookCard from '../components/BookCard';
+// import BookCard from '../components/BookCard';
+import BookshelfCard from '../components/BookshelfCard';
 
 class Search extends Component {
   state = {
@@ -50,14 +51,14 @@ class Search extends Component {
     event.preventDefault();
     console.log(`Search for: ${this.state.search}`);
     API.getGoogleBooks(this.state.search)
-      .then(res => { this.setState({results: res.data.items})
-        /*const bookArray = [];
+      .then(res => {
+        const bookArray = [];
         res.data.items.map(book => {
           const formattedBook = {
             title: book.volumeInfo.title,
             authors: book.volumeInfo.authors
               ? book.volumeInfo.authors
-              : 'No Author Listed',
+              : ['No Author Listed'],
             description: book.volumeInfo.description,
             googleBookId: book.id,
             thumbnail: book.volumeInfo.imageLinks
@@ -72,7 +73,7 @@ class Search extends Component {
           return bookArray
         });
         this.setState({results: bookArray});
-        console.log(this.state)*/
+        console.log(this.state)
       })
       .catch(err => console.log(err))
   };
@@ -90,7 +91,7 @@ class Search extends Component {
           handleInputChange={this.handleInputChange}
           handleFormSubmit={this.handleFormSubmit}
         />
-        <BookCard
+        <BookshelfCard
           books={this.state.results}
           buttonAction={this.saveBook}
           buttonType="btn btn-success mt-2"
