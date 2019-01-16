@@ -36,7 +36,7 @@ function BookResults(props) {
               </div>
               <a className="btn btn-primary mr-1 mt-2" href={book.volumeInfo.canonicalVolumeLink} target="_blank"
                  rel="noopener noreferrer">View Book</a>
-              <button className="btn btn-success mt-2" onClick={props.saveBook} id={book.id}>Save Book</button>
+              <button className={props.buttonType} onClick={props.buttonAction} id={book.id}>{props.buttonText}</button>
             </div>
           </div>
         ))}

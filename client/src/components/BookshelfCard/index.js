@@ -2,7 +2,7 @@ import React from 'react';
 import './style.css';
 
 function Bookshelf(props) {
-  console.log(props.books);
+  console.log(props);
   return (
     <div className="row mb-5">
       <div className="col-lg-12">
@@ -27,7 +27,7 @@ function Bookshelf(props) {
               </div>
               <a className="btn btn-primary mr-1 mt-2" href={book.link} target="_blank"
                  rel="noopener noreferrer">View Book</a>
-              <button className="btn btn-danger mt-2" onClick={props.deleteBook} id={book._id}>Delete Book</button>
+              <button className={props.buttonType} onClick={props.buttonAction} id={book._id}>{props.buttonText}</button>
             </div>
           </div>
         ))}

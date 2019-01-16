@@ -36,7 +36,7 @@ class Search extends Component {
       publishedDate: chosenBook.volumeInfo.publishedDate
     };
 
-    console.log(newSave);
+    // console.log(newSave);
     API.saveBook(newSave)
       .then(res => console.log(res.status, res.statusText))
       .catch(err => console.log(err))
@@ -92,7 +92,9 @@ class Search extends Component {
         />
         <BookCard
           books={this.state.results}
-          saveBook={this.saveBook}
+          buttonAction={this.saveBook}
+          buttonType="btn btn-success mt-2"
+          buttonText="Save Book"
         />
       </div>
     );
