@@ -1,4 +1,7 @@
 import React, {Component} from 'react';
+
+import {withAlert} from 'react-alert';
+
 import API from '../utils/API';
 import Jumbotron from '../components/Jumbotron';
 import SearchForm from '../components/SearchForm';
@@ -61,9 +64,16 @@ class Search extends Component {
 
     API.saveBook(newSave)
       .then(res => {
-        alert('Book Saved.');
-        console.log(res.status, res.statusText)})
-      .catch(err => console.log(err))
+        console.log(res.status, res.statusText);
+        this.props.alert.show('Book Saved!', {type: 'success'})
+      })
+      .catch(err => {
+        console.log(err);
+        this.props.alert.show('Sorry, There was an issue with something back here...', {
+          type: 'error',
+          timeout: 5000
+        })
+      })
   };
 
   // Method handling the change of the input field.
@@ -109,4 +119,4 @@ class Search extends Component {
   }
 }
 
-export default Search;
+export default withAlert(Search);

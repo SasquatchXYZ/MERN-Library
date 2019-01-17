@@ -6,10 +6,14 @@
   "proxy": "http://localhost:3001/",
   "dependencies": {
     "axios": "^0.18.0",
+    "prop-types": "^15.6.2",
     "react": "^16.7.0",
+    "react-alert": "^4.0.4",
+    "react-alert-template-basic": "^1.0.0",
     "react-dom": "^16.7.0",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.3",
+    "react-transition-group": "^2.5.3",
     "reactjs-popup": "^1.3.2"
   },
   "scripts": {
