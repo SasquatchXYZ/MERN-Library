@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import API from '../utils/API';
 import Jumbotron from '../components/Jumbotron';
-import BookshelfCard from '../components/BookshelfCard';
+import BookCard from '../components/BookCard';
 
 class Bookshelf extends Component {
   state = { books: [] };
@@ -13,9 +13,14 @@ class Bookshelf extends Component {
   };
 
   deleteBook = event => {
-    API.deleteBook(event.target.id)
+    console.log(event.target.id);
+    const deleting = this.state.books.find(book => book.googleBookId === event.target.id);
+    console.log(deleting);
+    console.log(deleting._id)
+
+/*    API.deleteBook(event.target.id)
       .then(res => this.loadBookshelf())
-      .catch(err => console.log(err))
+      .catch(err => console.log(err))*/
   };
 
   // Lifecycle Method
@@ -32,7 +37,7 @@ class Bookshelf extends Component {
           instructions="View your book at Google, or Remove it from your Shelf."
           image="https://i0.wp.com/www.wayfaringviews.com/wp-content/uploads/2016/05/Last_Bookstore.jpg?ssl=1"
         />
-        <BookshelfCard
+        <BookCard
           books={this.state.books}
           buttonAction={this.deleteBook}
           buttonType="btn btn-danger mt-2"
