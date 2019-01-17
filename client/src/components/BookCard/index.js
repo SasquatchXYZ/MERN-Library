@@ -1,6 +1,7 @@
 import React from 'react';
 import './style.css';
 
+// Re-usable Stateless Component for both the Search and the Bookshelf Pages.
 function BookCard(props) {
   return (
     <div className="row mb-5">

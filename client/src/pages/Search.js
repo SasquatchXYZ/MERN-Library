@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
-
 import {withAlert} from 'react-alert';
-
 import API from '../utils/API';
 import Jumbotron from '../components/Jumbotron';
 import SearchForm from '../components/SearchForm';
@@ -119,4 +117,5 @@ class Search extends Component {
   }
 }
 
+// Exporting Component Utilizing the Alerts.
 export default withAlert(Search);
