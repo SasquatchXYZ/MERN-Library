@@ -24,7 +24,7 @@ function BookCard(props) {
                   </p>
                 </div>
               </div>
-              <a className="btn btn-primary mr-1 mt-2" href={book.link} target="_blank"
+              <a className="btn btn-info mr-1 mt-2" href={book.link} target="_blank"
                  rel="noopener noreferrer">View Book</a>
               <button className={props.buttonType}
                       onClick={props.buttonAction}
