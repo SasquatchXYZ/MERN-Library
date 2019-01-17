@@ -60,7 +60,9 @@ class Search extends Component {
     };
 
     API.saveBook(newSave)
-      .then(res => console.log(res.status, res.statusText))
+      .then(res => {
+        alert('Book Saved.');
+        console.log(res.status, res.statusText)})
       .catch(err => console.log(err))
   };
 
@@ -85,6 +87,7 @@ class Search extends Component {
   render() {
     return (
       <div className="container">
+
         <Jumbotron
           title="Search"
           lead="Using Google Books API"

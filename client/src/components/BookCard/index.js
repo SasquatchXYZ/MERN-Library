@@ -6,7 +6,13 @@ function BookCard(props) {
     <div className="row mb-5">
       <div className="col-lg-12">
         {props.books.map(book => (
-          <div className="card mt-4" id={book._id} key={book.googleBookId}>
+          <div className="card mt-4"
+               id={book._id}
+               key={
+                 book._id
+                   ? book._id
+                   : book.googleBookId
+               }>
             <div className="card-body">
               <h5 className="card-title">{book.title}</h5>
               <h6 className="card-subtitle mb-2 text-muted">{book.subtitle}</h6>
@@ -28,7 +34,11 @@ function BookCard(props) {
                  rel="noopener noreferrer">View Book</a>
               <button className={props.buttonType}
                       onClick={props.buttonAction}
-                      id={book.googleBookId}
+                      id={
+                        book._id
+                          ? book._id
+                          : book.googleBookId
+                      }
               >
                 {props.buttonText}
               </button>

@@ -22,7 +22,6 @@ export default {
   },
 
   deleteBook: function (id) {
-    console.log(id);
     return axios.delete(`/api/bookshelf/${id}`)
   }
 };
