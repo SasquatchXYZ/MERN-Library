@@ -4,7 +4,8 @@ import Jumbotron from '../components/Jumbotron';
 import SearchForm from '../components/SearchForm';
 import BookCard from '../components/BookCard';
 
-
+// Function to format the book results as they are returned from the API.  Allows for a single component 'BookCard'
+// that can be used in both pages.
 const formatBookResults = googleApiResults => {
   const bookArray = [];
 
@@ -41,6 +42,7 @@ class Search extends Component {
     error: ''
   };
 
+  // Method for saving a particular book to the database.
   saveBook = event => {
 
     const chosenBook = this.state.results.find(book => book.googleBookId === event.target.id);
@@ -62,10 +64,13 @@ class Search extends Component {
       .catch(err => console.log(err))
   };
 
+  // Method handling the change of the input field.
   handleInputChange = event => {
     this.setState({search: event.target.value})
   };
 
+  // Method handling the submission of the Search form, makes a call to retrieve the results of the search
+  // from Google Books API.
   handleFormSubmit = event => {
     event.preventDefault();
     // console.log(`Search for: ${this.state.search}`);

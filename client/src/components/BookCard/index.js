@@ -2,7 +2,6 @@ import React from 'react';
 import './style.css';
 
 function BookCard(props) {
-  // console.log(props);
   return (
     <div className="row mb-5">
       <div className="col-lg-12">
