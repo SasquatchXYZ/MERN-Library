@@ -36,19 +36,22 @@ This should install all the requisite modules for the server and then cd into th
 
 ```
 For the Server:
-express             (npm i -s express)
-axios               (npm i -s axios)
-if-env              (npm i -s if-env)
-mongoose            (npm i -s mongoose)
-concurrently        (npm i -s concurrently)
+express             
+axios               
+if-env              
+mongoose            
+concurrently        
 
 For the React App:
-axios               (npm i -s axios)
-react               (npm i -s react)
-react-dom           (npm i -s react-dom)
-react-router-dom    (npm i -s react-router-dom)
-react-scripts       (npm i -s react-scripts)
-alert               (npm i -s react-alert)
+axios               
+prop-types          
+react               
+react-alert         
+react-alert-template-basic
+react-dom       
+react-router-dom    
+react-scripts
+react-transition-group               
 ```
 
 ## Running 'MERN-Library'
