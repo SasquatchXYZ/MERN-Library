@@ -7,7 +7,6 @@ function BookCard(props) {
       <div className="col-lg-12">
         {props.books.map(book => (
           <div className="card mt-4"
-               id={book._id}
                key={
                  book._id
                    ? book._id

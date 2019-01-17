@@ -91,7 +91,7 @@ class Search extends Component {
         <Jumbotron
           title="Search"
           lead="Using Google Books API"
-          instructions="Search for a book, then view it, or add it to your library..."
+          instructions="Search for a book; then view it on Google Books, or add it to your Bookshelf..."
           image="https://www.travelcaffeine.com/wp-content/uploads/2017/07/last-bookstore-tunnel-downtown-los-angeles-california-876.jpg"
         />
         <SearchForm
