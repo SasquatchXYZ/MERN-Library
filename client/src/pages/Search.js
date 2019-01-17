@@ -4,6 +4,36 @@ import Jumbotron from '../components/Jumbotron';
 import SearchForm from '../components/SearchForm';
 import BookCard from '../components/BookCard';
 
+
+const formatBookResults = googleApiResults => {
+  const bookArray = [];
+
+  googleApiResults.map(book => {
+
+    const formattedBook = {
+      title: book.volumeInfo.title,
+      authors: book.volumeInfo.authors
+        ? book.volumeInfo.authors
+        : ['No Author Listed.'],
+      description: book.volumeInfo.description
+        ? book.volumeInfo.description
+        : 'No Description Listed.',
+      googleBookId: book.id,
+      thumbnail: book.volumeInfo.imageLinks
+        ? book.volumeInfo.imageLinks.thumbnail
+        : 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/170px-No_image_available.svg.png',
+      link: book.volumeInfo.canonicalVolumeLink,
+      pageCount: book.volumeInfo.pageCount,
+      subtitle: book.volumeInfo.subtitle,
+      publishedDate: book.volumeInfo.publishedDate
+    };
+
+    bookArray.push(formattedBook);
+    return bookArray
+  });
+  return bookArray;
+};
+
 class Search extends Component {
   state = {
     search: '',
@@ -41,32 +71,8 @@ class Search extends Component {
     // console.log(`Search for: ${this.state.search}`);
     API.getGoogleBooks(this.state.search)
       .then(res => {
-        const bookArray = [];
-        res.data.items.map(book => {
-
-          const formattedBook = {
-            title: book.volumeInfo.title,
-            authors: book.volumeInfo.authors
-              ? book.volumeInfo.authors
-              : ['No Author Listed.'],
-            description: book.volumeInfo.description
-              ? book.volumeInfo.description
-              : 'No Description Listed.',
-            googleBookId: book.id,
-            thumbnail: book.volumeInfo.imageLinks
-              ? book.volumeInfo.imageLinks.thumbnail
-              : 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/170px-No_image_available.svg.png',
-            link: book.volumeInfo.canonicalVolumeLink,
-            pageCount: book.volumeInfo.pageCount,
-            subtitle: book.volumeInfo.subtitle,
-            publishedDate: book.volumeInfo.publishedDate
-          };
-
-          bookArray.push(formattedBook);
-          return bookArray
-        });
-        this.setState({results: bookArray});
-        // console.log(this.state)
+        const formattedArray = formatBookResults(res.data.items);
+        this.setState({results: formattedArray});
       })
       .catch(err => console.log(err))
   };

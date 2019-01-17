@@ -6,24 +6,23 @@ import BookCard from '../components/BookCard';
 class Bookshelf extends Component {
   state = { books: [] };
 
+  // Method to Query the API/Database to GET all the books in the database.
   loadBookshelf = () => {
     API.getBookshelf()
       .then(res => this.setState({books: res.data}))
       .catch(err => console.log(err))
   };
 
+  // Method to DELETE a particular book from the database.
   deleteBook = event => {
-    console.log(event.target.id);
     const deleting = this.state.books.find(book => book.googleBookId === event.target.id);
-    console.log(deleting);
-    console.log(deleting._id)
 
-/*    API.deleteBook(event.target.id)
+    API.deleteBook(deleting._id)
       .then(res => this.loadBookshelf())
-      .catch(err => console.log(err))*/
+      .catch(err => console.log(err))
   };
 
-  // Lifecycle Method
+  // Lifecycle Method - once the Bookshelf Component mounts it runs the 'loadBookshelf' method.
   componentDidMount() {
     this.loadBookshelf()
   }
