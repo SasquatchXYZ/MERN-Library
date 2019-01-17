@@ -7,7 +7,7 @@ function Jumbotron(props) {
         <h1 className="display-4">{props.title}</h1>
         <p className="lead">{props.lead}</p>
         <hr className="my-4"/>
-        <p>{props.instructions}</p>
+        <p className="text-black">{props.instructions}</p>
       </div>
     </div>
   )
