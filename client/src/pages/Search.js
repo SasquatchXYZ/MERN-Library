@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import {withAlert} from 'react-alert';
 import API from '../utils/API';
-import Jumbotron from '../components/Jumbotron';
-import SearchForm from '../components/SearchForm';
-import BookCard from '../components/BookCard';
+import {Jumbotron} from '../components/Jumbotron';
+import {SearchForm} from '../components/SearchForm';
+import {BookCard} from '../components/BookCard';
 
 // Function to format the book results as they are returned from the API.  Allows for a single component 'BookCard'
 // that can be used in both pages.
@@ -83,7 +83,7 @@ class Search extends Component {
   // from Google Books API.
   handleFormSubmit = event => {
     event.preventDefault();
-    // console.log(`Search for: ${this.state.search}`);
+    console.log(`Search for: ${this.state.search}`);
     API.getGoogleBooks(this.state.search)
       .then(res => {
         const formattedArray = formatBookResults(res.data.items);

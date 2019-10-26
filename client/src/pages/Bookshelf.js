@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import API from '../utils/API';
-import Jumbotron from '../components/Jumbotron';
-import BookCard from '../components/BookCard';
+import {Jumbotron} from '../components/Jumbotron';
+import {BookCard} from '../components/BookCard';
 
 class Bookshelf extends Component {
   state = {books: []};
